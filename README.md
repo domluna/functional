@@ -21,7 +21,7 @@ Go 1.1 added a bunch of goodies in the "reflect" package to allow for much bette
     // Method 2, make a regular function then assign to it.
     func fibMemo(n int64) int64 {
     	if n < 2 {return 1}
-    	return fib(n-1) + fib(n-2)
+    	return fibMemo(n-1) + fibMemo(n-2)
     }
 
     func main() {
