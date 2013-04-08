@@ -19,7 +19,7 @@ Go 1.1 added a bunch of goodies in the "reflect" package to allow for much bette
     }
 
     // Method 2, make a regular function then assign to it.
-    func fib2(n int64) int64 {
+    func fibMemo(n int64) int64 {
     	if n < 2 {return 1}
     	return fib(n-1) + fib(n-2)
     }
@@ -29,7 +29,7 @@ Go 1.1 added a bunch of goodies in the "reflect" package to allow for much bette
     	fib = functional.Memo(fib).(func(int64) int64)
     	fmt.Println(fib(300))
         // Method 2
-    	fibMemo := functional.Memo(fib2).(func(int64) int64)
+    	fibMemo := functional.Memo(fibMemo).(func(int64) int64)
     	fmt.Println(fibMemo(300))
     }
     
